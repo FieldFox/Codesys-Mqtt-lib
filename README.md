@@ -9,7 +9,7 @@ A Codesys MQTT library
 # Dependencies
 - oscat_basic_333.lib
 - SysLibSockets.lib
-- WagoLibEthernet_01.lib
+- WagoLibEthernet_01.lib (http://www.wago.com/wagoweb/documentation/app_note/libraries/WagoLibEthernet_01.lib)
 - Standard.lib
 
 # Tested on
