@@ -1,10 +1,10 @@
-#include "C:\Users\wim\Source\spikes\mqtt\mqtt.h"
+#include "C:\users\oedemis\Desktop\Master\implementations\Clients\ownimplementation\own\mqtt.h"
 
 
 /* The implemenation templates */
 BOOL BUFFERinit(BUFFERtyp* inst, BOOL bRetain)
 {
-	int j, k, l; /* Loop counters */
+	int j; /* Loop counter */
 	for (j = 0; j < 1501; j++)
 	{
 			(*((inst->DATA) + j)) = 0;
@@ -13,25 +13,8 @@ BOOL BUFFERinit(BUFFERtyp* inst, BOOL bRetain)
 	return bRetain;
 }
 
-BOOL _BUFFER_CONCAT(BUFFERtyp *PTparam, BUFFERtyp *PTCONTACTparam)
-{
-}
-
-BOOL _BUFFER_PUSH(BUFFERtyp *PTparam, BYTE INparam)
-{
-}
-
-BOOL _BUFFER_PUSH_STRING(BUFFERtyp *PTparam, char* INparam, BOOL INCLUDE_LENGTHparam)
-{
-}
-
-BOOL _BUFFER_SET(BUFFERtyp *PTparam, BYTE INparam, WORD POSparam)
-{
-}
-
 BOOL FIXEDHEADERinit(FIXEDHEADERtyp* inst, BOOL bRetain)
 {
-	int j, k, l; /* Loop counters */
 	inst->BMESSAGETYPE = 0;
 	inst->XDUP_FLAG = FALSE;
 	inst->XQOS = 0;
@@ -39,17 +22,8 @@ BOOL FIXEDHEADERinit(FIXEDHEADERtyp* inst, BOOL bRetain)
 	return bRetain;
 }
 
-BOOL CREATE_MESSAGE(BUFFERtyp *PTparam, FIXEDHEADERtyp FIXEDHEADERparam, BUFFERtyp VARIABLEHEADERparam, BUFFERtyp PAYLOADparam)
-{
-}
-
-BOOL ENCODE_REMAINING_LENGTH(BUFFERtyp *PTparam, DWORD LENGTHparam)
-{
-}
-
 BOOL CONNECTFLAGSinit(CONNECTFLAGStyp* inst, BOOL bRetain)
 {
-	int j, k, l; /* Loop counters */
 	inst->XUSERNAME = FALSE;
 	inst->XPASSWORD = FALSE;
 	inst->XWILLRETAIN = FALSE;
@@ -66,7 +40,6 @@ void MQTT_CLIENT(MQTT_CLIENTtyp* inst)
 
 BOOL MQTT_CLIENTinit(MQTT_CLIENTtyp* inst, BOOL bRetain)
 {
-	int j, k, l; /* Loop counters */
 	/* Initializing Function Block components */
 	inst->VERSION = 3;
 	inst->RESERVED = 0;
@@ -107,15 +80,16 @@ BOOL MQTT_CLIENTinit(MQTT_CLIENTtyp* inst, BOOL bRetain)
 	inst->XSTARTTIMER = FALSE;
 	(*pstrcpy)(inst->STOPIC, "");
 	(*pstrcpy)(inst->SPAYLOAD, "");
+	(*pstrcpy)(inst->SIP, "");
+	inst->WPORTNUMBER = 0;
+	(*pstrcpy)(inst->SUSERNAME, "");
+	(*pstrcpy)(inst->SPASSWORD, "");
 	inst->XCONNECTED = FALSE;
+	inst->XBUSY = FALSE;
 	if (bRetain)
 		return bRetain;
 
 	/* Initalize the retain variables only if bRetain is FALSE */
 	return bRetain;
-}
-
-void PLC_PRG(void)
-{
 }
 
